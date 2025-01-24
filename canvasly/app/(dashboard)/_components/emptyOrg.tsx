@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { CreateOrganization } from "@clerk/nextjs";
+import { DialogTitle } from "@radix-ui/react-dialog";
 import Image from "next/image";
 
 export function EmptyOrg() {
@@ -17,6 +18,7 @@ export function EmptyOrg() {
             <Button size="lg">Create organization</Button>
           </DialogTrigger>
           <DialogContent className="p-0 bg-transparent border-none max-w-[480px]">
+            <DialogTitle className="text-transparent">Create organization</DialogTitle>
             <CreateOrganization />
           </DialogContent>
         </Dialog>
