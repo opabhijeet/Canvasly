@@ -25,7 +25,7 @@ export default function RootLayout({
         <Suspense fallback={<Loading />}>
           <ConvexClientProvider>
             <Toaster />
-            <ModalProvider />
+            {/* <ModalProvider /> */}
             {children}
           </ConvexClientProvider>
         </Suspense>

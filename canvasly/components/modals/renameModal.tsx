@@ -6,7 +6,7 @@ import {
   DialogContent,
   DialogDescription,
   DialogFooter,
-  DialogHeader,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { api } from "@/convex/_generated/api";
 import { useApiMutation } from "@/hooks/useApiMutation";
@@ -41,7 +41,7 @@ export const RenameModal = () => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
-        <DialogHeader>Edit board title</DialogHeader>
+        <DialogTitle>Edit board title</DialogTitle>
         <DialogDescription>Enter a new title for this board</DialogDescription>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input

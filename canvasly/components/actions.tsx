@@ -8,6 +8,7 @@ import type { DropdownMenuContentProps } from "@radix-ui/react-dropdown-menu";
 import { Link2, Pencil, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { ConfirmModal } from "./modals/confirmModal";
+import { RenameModal } from "./modals/renameModal_2";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
@@ -33,6 +34,8 @@ export function Actions({
 }: ActionsProp) {
   const { onOpen } = useRenameModal();
   const { mutate: remove, isLoading } = useApiMutation(api.board.remove);
+  const { mutate: update, isLoading : isLoadingRename } = useApiMutation(api.board.update);
+
 
   const handleCopyLink = () => {
     navigator.clipboard
@@ -45,6 +48,14 @@ export function Actions({
     remove({ id: id as Id<"boards"> })
       .then(() => toast.success("Board deleted!"))
       .catch(() => toast.error("Failed to delete board"));
+  };
+
+  const handleUpdate = (newTitle : string) => {
+    update({ id: id as Id<"boards">, title: newTitle })
+      .then(() => {
+        toast.success("Board title updated");
+      })
+      .catch(() => toast.error("Failed to update board title"))
   };
 
   return (
@@ -63,13 +74,31 @@ export function Actions({
           <Link2 className="h-4 w-4 mr-2" />
           Copy board link
         </DropdownMenuItem>
-        <DropdownMenuItem
+
+        {/* <DropdownMenuItem
           className="p-3 cursor-pointer"
           onClick={() => onOpen(id, title)}
         >
           <Pencil className="h-4 w-4 mr-2" />
           Rename
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
+
+        <RenameModal
+          header="Edit board title"
+          description="Enter a new title for this board"
+          disabled={isLoadingRename}
+          onConfirm={handleUpdate}
+          title={title}
+        >
+          <Button
+            className="p-3 cursor-pointer w-full justify-start font-normal"
+            variant="ghost"
+          >
+            <Pencil className="h-4 w-4 mr-2" />
+            Rename
+          </Button>
+        </RenameModal>
+
         <ConfirmModal
           header="Delete board?"
           description="This will delete the board and all of its content"
