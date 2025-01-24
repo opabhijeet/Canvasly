@@ -41,17 +41,24 @@ export const RenameModal = ({
           <AlertDialogDescription>{description}</AlertDialogDescription>
         </AlertDialogHeader>
         <Input
-            disabled={false}
+            disabled={disabled}
             required
             maxLength={60}
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
             placeholder="Board title"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                (document.querySelector('[data-confirm-id="alert-dialog-action"]') as HTMLElement)?.click();
+              }
+            }}
         />
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction disabled={disabled} onClick={() => onConfirm(newTitle)}>
-            Confirm
+            <span data-confirm-id="alert-dialog-action">
+              Confirm
+            </span>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
