@@ -3,7 +3,6 @@
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useApiMutation } from "@/hooks/useApiMutation";
-import { useRenameModal } from "@/store/useRenameModal";
 import type { DropdownMenuContentProps } from "@radix-ui/react-dropdown-menu";
 import { Link2, Pencil, Trash2 } from "lucide-react";
 import { toast } from "sonner";
@@ -32,7 +31,6 @@ export function Actions({
   id,
   title,
 }: ActionsProp) {
-  const { onOpen } = useRenameModal();
   const { mutate: remove, isLoading } = useApiMutation(api.board.remove);
   const { mutate: update, isLoading : isLoadingRename } = useApiMutation(api.board.update);
 
@@ -74,14 +72,6 @@ export function Actions({
           <Link2 className="h-4 w-4 mr-2" />
           Copy board link
         </DropdownMenuItem>
-
-        {/* <DropdownMenuItem
-          className="p-3 cursor-pointer"
-          onClick={() => onOpen(id, title)}
-        >
-          <Pencil className="h-4 w-4 mr-2" />
-          Rename
-        </DropdownMenuItem> */}
 
         <RenameModal
           header="Edit board title"

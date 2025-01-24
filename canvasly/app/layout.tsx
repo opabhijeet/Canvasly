@@ -1,6 +1,5 @@
 import { Toaster } from "@/components/ui/sonner";
 import {ConvexClientProvider} from "@/providers/convexClientProvider";
-import { ModalProvider } from "@/providers/modalProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -25,7 +24,6 @@ export default function RootLayout({
         <Suspense fallback={<Loading />}>
           <ConvexClientProvider>
             <Toaster />
-            {/* <ModalProvider /> */}
             {children}
           </ConvexClientProvider>
         </Suspense>
