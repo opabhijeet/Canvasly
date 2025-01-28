@@ -46,7 +46,7 @@ export const useSelectionBounds = () => {
   return useStorage((root) => {
     const selectedLayers = selection
       .map((layerId) => root.layers.get(layerId)!)
-      .filter(Boolean);
+      .filter(Boolean); //to remove undefined and null etc
 
     return boundingBox(selectedLayers);
   }, shallow);
