@@ -157,6 +157,8 @@ export function penPointsToPathLayer(
     height: bottom - top,
     fill: color,
     points: points.map(([x, y, pressure]) => [x - left, y - top, pressure]),
+    //cordinates are relative to the top left corner of the layer
+    //so that path moves with the layer
   };
 }
 
