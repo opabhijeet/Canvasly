@@ -4,11 +4,15 @@ Canvasly is a web-based application that allows users to create, edit, and share
 
 ## Features
 
-- **Drawing Tools**: A wide range of brushes, pencils, and shapes to choose from.
+- **Drawing Tools**: Draw basic shapes like rectangles, circles, and lines with ease.
 - **Layers**: Support for multiple layers to organize your artwork.
-- **Export Options**: Save your work in various formats including PNG, JPEG, and SVG.
 - **Collaboration**: Share your canvas with others and collaborate in real-time.
 - **Undo/Redo**: Easily correct mistakes with unlimited undo and redo functionality.
+<!-- - **Export Options**: Export your artwork in various formats such as PNG, JPEG, and SVG. -->
+<!-- - **Custom Brushes**: Create and use custom brushes for unique effects. -->
+- **Keyboard Shortcuts**: Speed up your workflow with keyboard shortcuts.
+- **Color Picker**: Color picker to choose the perfect color for your artwork.
+- **Text Tool**: Add text within your drawings.
 
 <!-- ## Installation
 
