@@ -481,12 +481,16 @@ export const Canvas = ({ boardId }: CanvasProps) => {
               />
             )}
           <CursorPresence />
+          
+          {
           //when layer will be made draft will be null so it will be shown
-          //only while drawing then the layer will be shown
+          //only while drawing after that the layer will be shown
+          }
+
           {pencilDraft && pencilDraft.length > 0 && (
             <Path
               fill={colorToCss(lastUsedColor)}
-              points={pencilDraft} // drsft points are with respect to 0,0
+              points={pencilDraft} // draft points are with respect to 0,0
               x={0} // so no need to translate them
               y={0} // to the camera position
             />
