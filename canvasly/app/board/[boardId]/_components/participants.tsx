@@ -1,6 +1,6 @@
 "use client";
 
-import { useOthers, useSelf } from "@/liveblocks.config";
+import { useOthers, useSelf } from "@liveblocks/react/suspense";
 import { UserAvatar } from "./userAvatar";
 import { connectionIdToColor } from "@/lib/utils";
 
@@ -19,7 +19,7 @@ export const Participants = () => {
           .map(({ connectionId, info }) => (
             <UserAvatar
               key={connectionId}
-              src={info?.picture}
+              src={info?.avatar}
               name={info?.name}
               fallback={info?.name?.[0] || "T"}
               borderColor={connectionIdToColor(connectionId)}
@@ -27,7 +27,7 @@ export const Participants = () => {
           ))}
         {currentUser && (
           <UserAvatar
-            src={currentUser.info?.picture}
+            src={currentUser.info?.avatar}
             name={`${currentUser.info?.name} (You)`}
             fallback={currentUser.info?.name?.[0]}
             borderColor={connectionIdToColor(currentUser.connectionId)}

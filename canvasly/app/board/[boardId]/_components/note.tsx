@@ -1,5 +1,5 @@
 import { cn, colorToCss, getContrastingTextColor } from "@/lib/utils";
-import { useMutation } from "@/liveblocks.config";
+import { useMutation } from "@liveblocks/react/suspense";
 import { NoteLayer } from "@/types/canvas";
 import { Kalam } from "next/font/google";
 import ContentEditable, { ContentEditableEvent } from "react-contenteditable";

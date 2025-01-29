@@ -1,7 +1,7 @@
 "use client";
 
 import { useSelectionBounds } from "@/hooks/useSelectionBounds";
-import { useSelf, useStorage } from "@/liveblocks.config";
+import { useSelf, useStorage } from "@liveblocks/react/suspense";
 import { LayerType, Side, XYWH } from "@/types/canvas";
 import { memo } from "react";
 

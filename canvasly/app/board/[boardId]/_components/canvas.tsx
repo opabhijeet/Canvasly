@@ -17,7 +17,7 @@ import {
   useOthersMapped,
   useSelf,
   useStorage,
-} from "@/liveblocks.config";
+} from "@liveblocks/react/suspense";
 import type { Side, XYWH } from "@/types/canvas";
 import {
   Camera,
@@ -165,12 +165,12 @@ export const Canvas = ({ boardId }: CanvasProps) => {
         current,
       });
 
-      const ids = findIntersectingLayersWithRectangle(
+      const ids = layerIds ? findIntersectingLayersWithRectangle(
         layerIds,
         layers,
         origin,
         current
-      );
+      ) : [];
 
       setMyPresence({ selection: ids });
     },
@@ -423,12 +423,6 @@ export const Canvas = ({ boardId }: CanvasProps) => {
             break;
           }
         }
-        case "Delete": {
-          if (canvasState.mode === CanvasMode.None){
-            deleteLayers();
-            break;
-          }
-        }
       }
     }
 
@@ -465,7 +459,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
             transform: `translate(${camera.x}px, ${camera.y}px)`,
           }}
         >
-          {layerIds.map((layerId) => (
+          {layerIds && layerIds.map((layerId) => (
             <LayerPreview
               key={layerId}
               id={layerId}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useStorage } from "@/liveblocks.config";
+import { useStorage } from "@liveblocks/react/suspense";
 import { LayerType } from "@/types/canvas";
 import { memo } from "react";
 import { Ellipse } from "./ellipse";

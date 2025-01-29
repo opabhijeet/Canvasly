@@ -4,7 +4,7 @@ import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button";
 import { useDeleteLayers } from "@/hooks/useDeleteLayers";
 import { useSelectionBounds } from "@/hooks/useSelectionBounds";
-import { useMutation, useSelf } from "@/liveblocks.config";
+import { useMutation, useSelf } from "@liveblocks/react/suspense";
 import { Camera, Color } from "@/types/canvas";
 import { BringToFront, SendToBack, Trash2 } from "lucide-react";
 import { memo } from "react";

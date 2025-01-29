@@ -1,7 +1,7 @@
 "use client";
 
 import { colorToCss } from "@/lib/utils";
-import { useOthersConnectionIds, useOthersMapped } from "@/liveblocks.config";
+import { useOthersConnectionIds, useOthersMapped } from "@liveblocks/react/suspense";
 import { shallow } from "@liveblocks/client";
 import { memo } from "react";
 import { Cursor } from "./cursor";

@@ -9,7 +9,7 @@ import {Loading} from "@/components/auth/loading";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Miro Clone",
+  title: "Canvasly",
   description: "Digital collaboration whiteboard",
 };
 
